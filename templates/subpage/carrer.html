@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Carrer</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Carrer</li>
+          </ul>
+        </div>
+      </section>
+     
+    <div class="container">
+        <div class="row py-5 text-left">
+            {% for i in carrer %}
+                <div class="card mb-3" style="width: 80%;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{i.title}}</h5>
+                      <p class="card-subtitle mb-2 text-muted">Published Date: {{i.post_date}}</p>
+                      <p class="card-text pb-2">salary: {{i.salary}}</p>
+                      <a href="{% url 'carrerdetails' slug=i.slug %}" class="card-link btn btn-primary">Show Details & Apply</a>
+                    </div>
+                  </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock body_block %}

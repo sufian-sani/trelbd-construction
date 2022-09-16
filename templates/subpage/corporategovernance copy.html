@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Corporate Governance</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Corporate Governance</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Services 2-->
+      <section class="section section-xl bg-default text-center">
+        <div class="container-fluid container-inset-0" style="">
+          <div class="row row-30 row-desktop-8 gutters-8 hoverdir" data-lightgallery="group" style="margin: 0 auto;">
+            {% for corporategovernanc in corporategovernance %}
+            <div class="col-sm-6 col-lg-6 col-xxl-6 mb-6">
+              <div class="oh-desktop gallery_style" style="height: 400px;">
+                <!-- Thumbnail Modern-->
+                <article class="thumbnail thumbnail-modern wow slideInDown"><a class="thumbnail-modern-figure" href="/media/{{corporategovernanc.image}}" data-lightgallery="item"><img src="/media/{{corporategovernanc.image}}" alt="" width="474" height="355" class="gallery_style" style="height: 400px; width:500px"/></a>
+                  <div class="thumbnail-modern-caption">
+                    <h5 class="thumbnail-modern-title"><a href="#">{{corporategovernanc.title}}</a></h5>
+                    <div class="thumbnail-modern-badge"></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>
+
+       
+
+
+{% endblock body_block %}

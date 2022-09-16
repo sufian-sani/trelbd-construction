@@ -1,0 +1,87 @@
+{% load static %}
+{% load custom_filters %}
+<section class="section section-md section-lg-0 bg-gray-100 text-md-left section-relative" id="test">
+    <div class="tabs-custom container" id="tabs-8">
+      <div class="row row-40 flex-lg-row-reverse">
+        <div class="col-lg-4">
+          <div class="nav-tabs-2-button">
+            <h5 class="nav-tabs-2-title">About Company</h5><span class="icon mdi fa-thin fa-arrow-down" data-custom-scroll-to="test"></span>
+          </div>
+          <ul class="nav nav-tabs-2">
+            <li class="nav-item-2 wow fadeInRight" role="presentation"><a class="active" href="#tabs-8-1" data-toggle="tab">Company values</a></li>
+            <li class="nav-item-2 wow fadeInRight" role="presentation"><a href="#tabs-8-2" data-toggle="tab">Our Mission</a></li>
+            <li class="nav-item-2 wow fadeInRight" role="presentation"><a href="#tabs-8-3" data-toggle="tab">Our Vision</a></li>
+            <li class="nav-item-2 wow fadeInRight" role="presentation"><a href="#tabs-8-4" data-toggle="tab">View report</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 tab-content-2 wow fadeInLeft">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabs-8-1">
+              <div class="box-info">
+                <div class="unit flex-column flex-md-row align-items-center">
+                  <div class="unit-left">
+                    <div class="box-info-figure"><img src="/media/{{companyvalue.image}}" alt="" width="326" height="390"/>
+                    </div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="box-info-content">
+                      <h5 class="box-info-title">Company Values</h5>
+                      <p class="box-info-text">{{companyvalue.textfiled|range_filter|safe}}<a class="" href="{% url 'companyvalue' %}">Read More</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-8-2">
+              <div class="box-info">
+                <div class="unit flex-column flex-md-row align-items-center">
+                  <div class="unit-left">
+                    <div class="box-info-figure"><img src="/media/{{ourmission.image}}" alt="" width="326" height="390"/>
+                    </div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="box-info-content">
+                      <h5 class="box-info-title">Our Mission</h5>
+                      <p class="box-info-text">{{ourmission.textfiled|range_filter|safe}}<a class="" href="/ourmission/">Read More</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-8-3">
+              <div class="box-info">
+                <div class="unit flex-column flex-md-row align-items-center">
+                  <div class="unit-left">
+                    <div class="box-info-figure"><img src="/media/{{ourvision.image}}" alt="" width="326" height="390"/>
+                    </div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="box-info-content">
+                      <h5 class="box-info-title">Our Vision</h5>
+                      <p class="box-info-text">{{ourvision.textfiled|range_filter|safe}}<a class="box-info-link" href="{% url 'ourvision' %}">Read More</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-8-4">
+              <div class="box-info">
+                <div class="unit flex-column flex-md-row align-items-center">
+                  <div class="unit-left">
+                    <div class="box-info-figure"><img src="/media/{{ourreports.image}}" alt="" width="326" height="390"/>
+                    </div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="box-info-content">
+                      <h5 class="box-info-title">2019 Annual Report</h5>
+                      <p class="box-info-text">{{ourreports.textfiled|range_filter|safe}}<a class="box-info-link" href="{% url 'ourreport' %}">Read More</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

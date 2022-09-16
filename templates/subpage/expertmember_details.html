@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Team Member Details</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="index.html">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="#">Team Member</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li class="active">Team Member Details</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default">
+    <div class="container">
+      <div class="row row-60 flex-lg-row text-center">
+          <div class="col-md-10" style="margin:0 auto;">
+            <img src="/media/{{expertteamdetails.image}}" alt="" style="max-width:40%;">
+            <h6 class="py-2" style="margin:auto;">{{expertteamdetails.name}}</h6>
+            <span class="">{{expertteamdetails.title}}</span>
+            <br>
+            <hr>
+            <br>
+            <div style="text-align:left;margin-top:.5rem;">
+              {{expertteamdetails.description|safe}}
+            </div>
+          </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+
+{% endblock body_block %}

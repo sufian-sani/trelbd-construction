@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+
+<style>
+    .n-title{
+      font-size: 18px;
+      color: black;
+      font-weight: 500;
+  }
+  .n-link{
+    font-weight: 100;
+  }
+  .notice-banner{
+    color: black;
+  }
+  .alert-warning{
+    background: #FC9321;
+  }
+  </style>
+     
+    <div class="container-fluid">
+        <div class="alert alert-warning mt-3" role="alert">
+            <p class="text-center notice-banner">Report and Statements</p>
+        </div>
+        <div class="py-3"></div>
+        {% for i in reportstatement %}
+        <div class="alert alert-light border" role="alert">
+            <div class="row">
+            <div class="col-12 col-md-4">
+                <p class="n-title">{{i.title}}</p>
+            </div>
+            <div class="col-12 col-md-4 text-md-center">
+                <span class="n-date">{{i.publish_date}}</span>
+            </div>
+            <div class="col-12 col-md-4 text-md-center">
+                <a href="{{i.file.url}}" class="btn btn-dark">Download</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock body_block %}

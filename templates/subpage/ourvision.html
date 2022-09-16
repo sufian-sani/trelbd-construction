@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Our Vision</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+</section>
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="#">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="#">Our Vision</a></li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-left">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+          <div class="col-md-12" >
+            <h3 style="text-align: center;">{{ourvision.title}}</h3>
+          </div>
+          <div class="col-10" style="margin: 0 auto;">
+            <img class="u-image u-image-default u-image-1" style="margin: 0 auto;" src="/media/{{ourvision.image}}" alt="" data-image-width="548" data-image-height="750">
+          </div>
+      </div>
+      <div class="row">
+        <p>{{ourvision.textfiled|safe}}</p>
+      </div>
+    </div>
+    <div class="pt-4">
+        <span style="height:2px;width:600px;display:block;background-color: #FC9321; margin: 0 auto;"></span>
+    </div>
+  </section>
+
+
+
+{% endblock body_block %}

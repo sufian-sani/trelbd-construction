@@ -1,0 +1,27 @@
+{% load static %}
+<section class="section section-lg bg-default">
+    <div class="container">
+      <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Services</span></h3>
+      <div class="owl-carousel owl-style-3 dots-style-2" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-autoplay="true" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut">
+        <!-- Services Creative-->
+        {% for service in services %}
+        <article class="services-creative" style="height:550px;"><a class="services-creative-figure" href="{% url 'service-details' id=service.id %}"><img src="/media/{{service.image}}" alt="" width="370" height="230" style="height: 250px;"/></a>
+          <div class="services-creative-caption">
+            <h5 class="services-creative-title"><a href="{% url 'service-details' id=service.id %}">{{service.heading}}</a></h5>
+            <p class="services-creative-text">{{service.sub_title}}</p>
+          </div>
+        </article>
+        {% endfor %}
+        <!-- Services Creative-->
+        
+        <!-- Services Creative-->
+        
+        <!-- Services Creative-->
+        
+        <!-- Services Creative-->
+        
+        <!-- Services Creative-->
+        
+      </div>
+    </div>
+  </section>

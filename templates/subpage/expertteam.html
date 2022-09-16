@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body_block %} 
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Expert Team</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="/">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Expert Team</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Services 2-->
+
+
+      <section class="section section-xl bg-default text-center">
+        <div class="container-fluid container-inset-0">
+          <div class="row row-30 row-desktop-8 gutters-8 hoverdir" data-lightgallery="group">
+            
+            {% for expertteam in expertteams %}
+            <div class="card mb-3" style="max-width:1200px;margin:0 auto;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="/media/{{expertteam.image}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <a href="{% url 'expertteamdetails' slug=expertteam.slug %}" style="text-decoration: none;color:#000;">
+                  <div class="card-body" style="text-align:left;padding-top:10%;">
+                    <h5 class="card-title">{{expertteam.name}}</h5>
+                    <p class="card-text font-weight-bold">{{expertteam.title}}</p>
+                    <p class="card-text lead">{{expertteam.description|range_filter_long|safe}}</p>
+                  </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>
+
+
+      <!--
+      <section class="section section-xl bg-default text-center">
+        <div class="container-fluid container-inset-0">
+          <div class="row row-30 row-desktop-8 gutters-8 hoverdir" data-lightgallery="group">
+            {% for expertteam in expertteams %}
+            <div class="col-sm-6 col-lg-4 col-xxl-3 mb-3">
+              <div class="oh-desktop gallery_style " style="height: 400px;">
+                <article class="thumbnail thumbnail-modern wow slideInDown"><a class="thumbnail-modern-figure" href="/media/{{expertteam.image}}" data-lightgallery="item"><img src="/media/{{expertteam.image}}" alt="" width="474" height="355" style="height:400px" class="gallery_style"/></a>
+                  <div class="thumbnail-modern-caption">
+                    <h5 class="thumbnail-modern-title"><a href="{% url 'expertteamdetails' slug=expertteam.slug %}">{{expertteam.name}}</a></h5>
+                    <div class="thumbnail-modern-badge">{{expertteam.title}}</div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>
+      -->
+
+       
+
+
+{% endblock body_block %}

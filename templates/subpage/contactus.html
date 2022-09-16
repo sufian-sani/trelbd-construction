@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">CONTACTS US</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="/">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">CONTACTS US</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- contacts 2-->
+      
+      <section class="section section-lg bg-default text-md-left" data-select2-id="8">
+        <div class="container" data-select2-id="7">
+          <div class="row row-60 justify-content-center" data-select2-id="6">
+            <div class="col-lg-8" data-select2-id="5">
+              <h4 class="text-spacing-25 text-transform-none">Get in Touch</h4>
+
+              <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="POST" action="{% url 'contactus' %}">
+                {% csrf_token %}
+                <div class="row row-20 gutters-20">
+                <div class="col-md-6">
+                    <div class="form-wrap">
+                        <input class="form-input" id="contact-your-name-4" type="text" name="customername" data-constraints="@Required">
+                        <label class="form-label" for="contact-your-name-4">Your Name*</label>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-wrap">
+                        <input class="form-input" id="contact-your-name-4" type="text" name="companyname" data-constraints="">
+                        <label class="form-label" for="contact-your-name-4">Company Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-phone-4" type="text" name="phone" data-constraints="@Numeric">
+                      <label class="form-label" for="contact-phone-4">Your Phone*</label>
+                    </div>
+                </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-email-4" type="email" name="email" data-constraints="">
+                      <label class="form-label" for="contact-email-4">Your E-mail</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-wrap">
+                      <label class="form-label" for="contact-message-4">Your message</label>
+                      <textarea class="form-input textarea-lg" id="contact-message-4" name="message"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <button class="button button-secondary button-winona" type="submit">Send request</button>
+              </form>
+              
+            </div>
+            <div class="col-lg-4">
+              <div class="aside-contacts">
+                <div class="row row-30">
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">Get social</p>
+                    <ul class="list-inline contacts-social-list list-inline-sm list-inline-sm-custom">
+                      <li><a class="icon mdi fa-brands fa-facebook-f" href="#"></a></li>
+                      <li><a class="icon mdi fa-brands fa-twitter" href="#"></a></li>
+                      <li><a class="icon mdi fa-brands fa-instagram" href="#"></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">Phone</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi fa-thin fa-phone"></span></div>
+                      <div class="unit-body"><a class="phone" href="tel:#">1-800-1234-567</a></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">E-mail</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi fa-thin fa-envelope"></span></div>
+                      <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">Address</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi fa-solid fa-location-dot"></span></div>
+                      <div class="unit-body"><a class="address" href="#">6036 Richmond hwy., <br class="d-md-none">Alexandria, VA, 2230</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+       
+
+
+{% endblock body_block %}

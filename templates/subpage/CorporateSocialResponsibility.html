@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Corporate Social Responsibility</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="/boardmeetingsagm/">Corporate Social Responsibility</a></li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-left">
+    <div class="container">
+      <div class="row">
+        {{corporatesocialresponsibility_safe.description | safe}}
+      </div>
+    </div>
+  </section>
+
+
+{% endblock body_block %}

@@ -1,0 +1,26 @@
+{% load static %}
+{% load custom_filters %}
+<section class="section section-decorative-bottom section-inset-8 bg-gray-25 context-dark text-center">
+    <div class="container">
+      <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Projects</span></h3>
+      <div class="owl-style-4">
+        <div class="owl-carousel dots-style-2" data-loop="false" data-items="1" data-md-items="2" data-margin="30" data-md-margin="0" data-nav="true" data-dots="true" data-smart-speed="400" data-autoplay="true">
+          <!-- Project Classic-->
+          {% for ourpro in ourproject %}
+          <article class="project-classic"><a class="project-classic-figure" href="single-property.html"><img src="/media/{{ourpro.image}}" alt="" width="570" height="370" class="project_image"/></a>
+            <div class="project-classic-caption">
+              <h5 class="project-classic-title"><a href="{% url 'ourprojectdetails' id=ourpro.id %}">{{ourpro.title}}</a></h5>
+              <div class="project-classic-text">{{ ourpro.textfiled|truncatechars_html:100|safe }}</div>
+            </div>
+          </article>
+          {% endfor %}
+          <!-- Project Classic-->
+
+          <!-- Project Classic-->
+
+          <!-- Project Classic-->
+
+        </div>
+      </div>
+    </div>
+  </section>

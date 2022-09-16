@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Our Project</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-thin fa-arrow-right"></i></li>
+            <li class="">Our Project</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-xl bg-default text-center">
+        <div class="container-fluid container-inset-0">
+          <div class="row row-30 row-desktop-8 gutters-8 hoverdir" data-lightgallery="group">
+            {% for ourpro in ourprojects %}
+            <div class="col-sm-6 col-lg-4 col-xxl-3 mb-3">
+              <div class="oh-desktop gallery_style">
+                <!-- Thumbnail Modern-->
+                <article class="thumbnail thumbnail-modern wow slideInDown"><a class="" href="{% url 'ourprojectdetails' id=ourpro.id %}" data-lightgallery=""><img src="/media/{{ourpro.image}}" alt="" width="474" height="355" class=""/></a>
+                  <div class="thumbnail-modern-caption">
+                    <h5 class="thumbnail-modern-title"><a href="{% url 'ourprojectdetails' id=ourpro.id %}">{{ourpro.title}}</a></h5>
+                    <div class="thumbnail-modern-badge"></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </section>
+
+
+{% endblock body_block %}

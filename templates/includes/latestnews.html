@@ -1,0 +1,88 @@
+{% load static %}
+
+<section class="section section-xl bg-default text-md-left">
+  <div class="tabs-custom tabs-post container" id="tabs-9">
+    <div class="row align-items-md-end align-items-xl-start">
+      <div class="col-md-6 tab-content-3 wow fadeInUp">
+        <div class="tab-content">
+          {% for late_n in latesnewss %}
+          {% if forloop.counter == 1 %}
+          <div class="tab-pane fade show active" id="tabs-9-{{ forloop.counter }}">
+          
+          {% else %}
+          <div class="tab-pane fade show" id="tabs-9-{{ forloop.counter }}">
+          {% endif %}         
+          <div class="post-amy-figure">
+            <img src="/media/{{late_n.image}}" alt="" width="570" height="505"/>
+          </div>
+        </div>
+          {% endfor %}
+
+        </div>
+      </div>
+      <div class="col-md-6 index-1">
+        <h3 class="tabs-post-title oh-desktop"><span class="d-inline-block wow slideInDown">Latest news</span></h3>
+        <ul class="nav nav-tabs">
+          {% for late_n in latesnewss %}
+          {% if forloop.counter == 1 %}
+          <li class="nav-item wow fadeInRight" role="presentation"><a class="nav-link active" href="#tabs-9-{{ forloop.counter }}" data-toggle="tab"></a>     
+          {% else %}
+          <li class="nav-item wow fadeInRight" role="presentation"><a class="nav-link" href="#tabs-9-{{ forloop.counter }}" data-toggle="tab"></a>
+          {% endif %}  
+            <div class="post-amy">
+              <h5 class="post-amy-title"><a href="{% url 'newspage_details' slug=late_n.slug %}">{{late_n.title}}</a></h5>
+              <ul class="post-amy-info list-inline">
+                <li class="post-amy-time"><span class="icon mdi fa-thin fa-clock"></span>
+                  <time datetime="2019-05-26">{{late_n.publish_date}}</time>
+                </li>
+                <li class="post-amy-autor"><span class="icon mdi fa-thin fa-user"></span><a href="#"></a></li>
+              </ul>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% comment %} <section class="section section-xl bg-default text-md-left">
+    <div class="tabs-custom tabs-post container" id="tabs-9">
+      {% for latesnews in latesnewss %}
+      <div class="row align-items-md-end align-items-xl-start">
+        
+        <div class="col-md-6 tab-content-3 wow fadeInUp">
+          <div class="tab-content">
+            
+
+            <div class="tab-pane fade show active" id="tabs-9-{{latesnews.id}}">
+              <div class="post-amy-figure"><img src="/media/{{latesnews.image}}" alt="" width="570" height="505"/>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="col-md-6 index-1">
+          <h3 class="tabs-post-title oh-desktop"><span class="d-inline-block wow slideInDown">Latest news</span></h3>
+          <ul class="nav nav-tabs">
+            
+            <li class="nav-item wow fadeInRight" role="presentation"><a class="nav-link active" href="#tabs-9-{{latesnews.id}}" data-toggle="tab"></a>
+              <div class="post-amy">
+                <h5 class="post-amy-title"><a href="blog-post.html">{{latesnews.title}}</a></h5>
+                <ul class="post-amy-info list-inline">
+                  <li class="post-amy-time"><span class="icon mdi fa-thin fa-clock"></span>
+                    <time datetime="">{{latesnews.created_at}}</time>
+                  </li>
+                  <li class="post-amy-autor"><span class="icon mdi fa-thin fa-user"></span><a href="#">{{latesnews.name}}</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section> {% endcomment %}

@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+
+<style>
+    #mixedSlider {
+      position: relative;
+    }
+    #mixedSlider .MS-content {
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0 5%;
+    }
+    #mixedSlider .MS-content .item {
+      display: inline-block;
+      width: 33.3333%;
+      position: relative;
+      vertical-align: top;
+      overflow: hidden;
+      height: 100%;
+      white-space: normal;
+      padding: 0 10px;
+    }
+    @media (max-width: 991px) {
+      #mixedSlider .MS-content .item {
+        width: 50%;
+      }
+    }
+    @media (max-width: 767px) {
+      #mixedSlider .MS-content .item {
+        width: 100%;
+      }
+    }
+    #mixedSlider .MS-content .item .imgTitle {
+      position: relative;
+    }
+    #mixedSlider .MS-content .item .imgTitle .blogTitle {
+      margin: 0;
+      text-align: left;
+      letter-spacing: 2px;
+      color: #252525;
+      font-style: italic;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      bottom: 0;
+      font-weight: bold;
+      padding: 0 0 2px 10px;
+    }
+    #mixedSlider .MS-content .item .imgTitle img {
+      height: auto;
+      width: 100%;
+    }
+    #mixedSlider .MS-content .item p {
+      font-size: 16px;
+      margin: 2px 10px 0 5px;
+      text-indent: 15px;
+    }
+    #mixedSlider .MS-content .item a {
+      float: right;
+      margin: 0 20px 0 0;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(173, 0, 0, 0.82);
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: linear 0.1s;
+    }
+    #mixedSlider .MS-content .item a:hover {
+      text-shadow: 0 0 1px grey;
+    }
+    #mixedSlider .MS-controls button {
+      position: absolute;
+      border: none;
+      background-color: transparent;
+      outline: 0;
+      font-size: 50px;
+      top: 95px;
+      color: rgba(0, 0, 0, 0.4);
+      transition: 0.15s linear;
+    }
+    #mixedSlider .MS-controls button:hover {
+      color: rgba(0, 0, 0, 0.8);
+    }
+    @media (max-width: 992px) {
+      #mixedSlider .MS-controls button {
+        font-size: 30px;
+      }
+    }
+    @media (max-width: 767px) {
+      #mixedSlider .MS-controls button {
+        font-size: 20px;
+      }
+    }
+    #mixedSlider .MS-controls .MS-left {
+      left: 0px;
+    }
+    @media (max-width: 767px) {
+      #mixedSlider .MS-controls .MS-left {
+        left: -10px;
+      }
+    }
+    #mixedSlider .MS-controls .MS-right {
+      right: 0px;
+    }
+    @media (max-width: 767px) {
+      #mixedSlider .MS-controls .MS-right {
+        right: -10px;
+      }
+    }
+    #basicSlider { position: relative; }
+    
+    #basicSlider .MS-content {
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0 2%;
+      height: 50px;
+    }
+    
+    #basicSlider .MS-content .item {
+      display: inline-block;
+      width: 20%;
+      position: relative;
+      vertical-align: top;
+      overflow: hidden;
+      height: 100%;
+      white-space: normal;
+      line-height: 50px;
+      vertical-align: middle;
+    }
+    @media (max-width: 991px) {
+    
+    #basicSlider .MS-content .item { width: 25%; }
+    }
+    @media (max-width: 767px) {
+    
+    #basicSlider .MS-content .item { width: 35%; }
+    }
+    @media (max-width: 500px) {
+    
+    #basicSlider .MS-content .item { width: 50%; }
+    }
+    
+    #basicSlider .MS-content .item a {
+      line-height: 50px;
+      vertical-align: middle;
+    }
+    
+    #basicSlider .MS-controls button { position: absolute; }
+    
+    #basicSlider .MS-controls .MS-left {
+      top: 35px;
+      left: 10px;
+    }
+    
+    #basicSlider .MS-controls .MS-right {
+      top: 35px;
+      right: 10px;
+    }
+    </style>
+
+<section class="bg-gray-7">
+  <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <div class="container">
+      <h3 class="breadcrumbs-custom-title">Service Details</h3>
+      <div class="breadcrumbs-custom-decor"></div>
+    </div>
+    <div
+      class="box-transform"
+      style="background-image: url({% static 'image/background/bg-typography.jpg' %})"
+    ></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="index.html">Home</a></li>
+      <li><i class="fa-solid fa-arrow-right-long"></i></li>
+      <li><a href="services.html">Services</a></li>
+      <li><i class="fa-solid fa-arrow-right-long"></i></li>
+      <li class="active">Single Service</li>
+    </ul>
+  </div>
+</section>
+<!-- Services-->
+
+<section class="section section-sm section-first bg-default text-left">
+    <div class="container">
+      <div class="row row-60">
+        <div class="col-md-7 col-xl-8">
+          <div class="single-service"><img src="/media/{{service_details.image}}" alt="" width="770" height="426"/>
+            <h4>{{service_details.heading}}</h4>
+            <p>{{service_details.textfiled | safe}}</p>
+            <div class="row row-50 flex-xl-row-reverse">
+              <div class="col-xl-2">
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-xl-4">
+          <div class="aside aside-services">
+            <div class="row row-60">
+              <div class="aside-item col-12">
+                <h6 class="aside-services-title">Related Service</h6>
+                <ul class="list-category">
+                  {% for related_serv in related_service %}
+                  <li class="list-category-item"><a href="{% url 'service-details' id=related_serv.id %}">{{related_serv}}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="aside-item col-sm-6 col-md-12">
+                <h5 class="aside-services-title">Our contacts</h5>
+                <!-- Box contacts-->
+                <div class="box-contacts">
+                  <div class="box-contacts-item">
+                    <div class="box-contacts-title">Free consultation</div>
+                    <div class="unit unit-spacing-xs flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon icon-24 fa-thin fa-phone"></span></div>
+                      <div class="unit-body"><a class="phone" href="tel:#">+8801791406426</a></div>
+                    </div>
+                  </div>
+                  <div class="box-contacts-item">
+                    <div class="box-contacts-title">Office</div>
+                    <div class="unit unit-spacing-xs flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon icon-28 mdi fa-solid fa-location-dot"></span></div>
+                      <div class="unit-body"><a class="address" href="#">15, New Baily Road. Building #2, Level 4, Dhaka-121</a></div>
+                    </div>
+                  </div>
+                  <div class="box-contacts-item">
+                    <div class="box-contacts-title">E-mail</div>
+                    <div class="unit unit-spacing-xs flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon fa-thin fa-envelope"></span></div>
+                      <div class="unit-body"><a class="mail" href="mailto:#">trenggltd@gmail.com</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="aside-item col-sm-6 col-md-12">
+                <h5 class="aside-services-title">Our brochure</h5><a class="button button-lg button-icon button-icon-left button-secondary button-winona" href="{% if service_details.brochure_file %} {{service_details.file_url}} {% else %}#{% endif %}"><span class="icon fa fa-download"></span><span>Download</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact us-->
+  <section class="section section-sm section-last bg-default text-left">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-8">
+          <h4>Contact us for the service</h4>
+          <p>Service Name: </p><h5 class="">{{service_details.heading}}</h5>
+          <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="POST" action="{% url 'service-details' id=service_details.id %}">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <div class="form-wrap">
+                    <input type="hidden" id="serviceid" name="serviceId" value={{service_details.id}}>
+                    <input type="hidden" class="form-input" id="contact-company-name-4" type="text" name="servicename" data-constraints="@Required" readonly="readonly" value="{{service_details.heading}}">
+                </div>
+            </div>
+            <div class="row row-20 gutters-20">
+            <div class="col-md-6">
+                <div class="form-wrap">
+                    <input class="form-input" id="contact-your-name-4" type="text" name="customername" data-constraints="@Required">
+                    <label class="form-label" for="contact-your-name-4">Your Name*</label>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="form-wrap">
+                    <input class="form-input" id="contact-your-name-4" type="text" name="companyname" data-constraints="">
+                    <label class="form-label" for="contact-your-name-4">Company Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-wrap">
+                  <input class="form-input" id="contact-phone-4" type="text" name="phone" data-constraints="@Numeric">
+                  <label class="form-label" for="contact-phone-4">Your Phone*</label>
+                </div>
+            </div>
+              <div class="col-md-6">
+                <div class="form-wrap">
+                  <input class="form-input" id="contact-email-4" type="email" name="email" data-constraints="">
+                  <label class="form-label" for="contact-email-4">Your E-mail</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-wrap">
+                  <label class="form-label" for="contact-message-4">Your message</label>
+                  <textarea class="form-input textarea-lg" id="contact-message-4" name="message"></textarea>
+                </div>
+              </div>
+            </div>
+            <button class="button button-secondary button-winona" type="submit">Send request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- slider us-->
+
+  <div id="mixedSlider">
+    <div class="MS-content">
+        {% for related_serv in related_service %}
+        <div class="item" style="margin:0 auto;">
+            <div class="imgTitle">
+                <a href="{% url 'service-details' id=related_serv.id %}"><img src="/media/{{related_serv.image}}" alt="" style="height:200px;width:300px"/></a>
+            </div>
+            <p><a href="{% url 'service-details' id=related_serv.id %}">{{related_serv.heading}}</a></p>
+            {% comment %} <a href="{% url 'service-details' id=related_serv.id %}">Read More</a> {% endcomment %}
+        </div>
+       {% endfor %}
+    </div>
+    <div class="MS-controls">
+        <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+        <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+    </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
+<script src="{% static 'js/slider/multislider.min.js' %}"></script> 
+<script>
+    $('#basicSlider').multislider({
+                continuous: true,
+                duration: 2000
+            });
+            $('#mixedSlider').multislider({
+                duration: 750,
+                interval: 3000
+            });
+    </script>
+
+{% endblock body_block %}

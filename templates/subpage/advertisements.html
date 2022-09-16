@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+   
+<style>
+
+    .modal-backdrop{
+        z-index: -99;
+    }
+    .product_card .card_hoverly{
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      .product_card .card_hoverly img {
+        width: 100%;
+        transition: 0.5s all ease-in-out;
+      }
+    
+      .product_card .card_hoverly:hover img {
+        transform: scale(1.2);
+      }
+
+</style>
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Advertisements</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="/">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Advertisements</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Services 2-->
+
+      <section id="" class="my-5">
+        <div class="container">
+          <div class="row justify-content-center">
+      
+      
+            
+            {% for all_product in all_products %}
+            <div class="col-md-8 col-lg-6 col-xl-4 p-2 product_card">
+              <div class="card text-black card_hoverly">
+                <a href="{% url 'product_details' slug=all_product.slug %}">
+                <img
+                  src="/media/{{all_product.image}}"
+                  class="card-img-top"
+                  alt="Apple Computer"
+                  width="400"
+                  height="250"
+                />
+                <div class="card-body mt-2">
+                  <div class="text-center">
+                    <h6 class="card-title">{{all_product.name}}</h6>
+                    <p class="text-muted mb-4">{{all_product.subtitle}}</p>
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+            {% endfor %}
+      
+      
+          </div>
+        </div>
+      </section>
+      
+       
+
+
+{% endblock body_block %}

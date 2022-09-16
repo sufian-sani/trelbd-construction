@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Project Details</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="/historymilestones/">History And Milestones</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li class="active">History And Milestones Details</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-left">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+        <img src="/media/{{historymilestonesdetails.image}}" alt="" class="col-md-6">
+        <h3 class="col-md-6" style="margin: auto;">{{historymilestonesdetails.title}}</h3>
+      </div>
+      <div class="row">
+        {{historymilestonesdetails.textfiled | safe}}
+      </div>
+    </div>
+  </section>
+
+
+{% endblock body_block %}

@@ -1,0 +1,122 @@
+{% load static %}
+{% load service %}
+<div class="preloader">
+    <div class="wrapper-triangle">
+      <div class="pen">
+        <div class="line-triangle">
+          <div class="triangle"></div>
+        </div>
+        <div class="line-triangle">
+          <div class="triangle"></div>
+        </div>
+        <div class="line-triangle">
+          <div class="triangle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <!-- Page Header-->
+    <header class="section page-header">
+      <!-- RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="150px" data-xl-stick-up-offset="150px" data-xxl-stick-up-offset="150px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-inner-outer">
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand" href="{% url 'index' %}"><img class="brand-logo-dark" src="{% static 'image/TEL_LOGO.png' %}" alt="" width="122" height="39"/><img class="brand-logo-light" src="images/logo-inverse-244x78.png" alt="" width="122" height="39"/></a>
+                </div>
+              </div>
+              <div class="rd-navbar-right rd-navbar-nav-wrap">
+                <div class="rd-navbar-aside">
+                  <ul class="rd-navbar-contacts-2">
+                    <li>
+                      <div class="unit unit-spacing-xs">
+                        <div class="unit-left"><span class="icon fa-thin fa-phone"></span></div>
+                        <div class="unit-body"><a class="phone" href="tel:#">+8801791406426</a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="unit unit-spacing-xs">
+                        <div class="unit-left"><span class="icon fa-thin fa-location-dot"></span></div>
+                        <div class="unit-body"><a class="address" href="https://goo.gl/maps/S5L32MNoL788AFb68">15, New Baily Road. Building #2, Level 4, Dhaka-121</a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-share-2">
+                    <li><a class="icon fa-brands fa-facebook-f" href="#"></a></li>
+                    <li><a class="icon fa-brands fa-twitter" href="#"></a></li>
+                    <li><a class="icon fa-brands fa-linkedin" href="#"></a></li>
+                  </ul>
+                </div>
+                <div class="rd-navbar-main">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    {% url 'index' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}"><a class="rd-nav-link" href="/">Home</a>
+                    </li>
+                    {% url 'service' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}"><a class="rd-nav-link" href="/service/">Services</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        {% for i in request|service %}
+                        <li class="rd-dropdown-item">
+                          <a class="rd-dropdown-link" href="{% url 'service-details' id=i.id %}">{{i.heading}}</a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                    {% url 'ourprojects' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}"><a class="rd-nav-link" href="/ourprojects/">Project</a>
+                      <!-- RD Navbar Dropdown-->
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        {% for i in request|project %}
+                        <li class="rd-dropdown-item">
+                          <a class="rd-dropdown-link" href="{% url 'ourprojectdetails' id=i.id %}">{{i.title}}</a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                    {% url 'gallery' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}">
+                      <a class="rd-nav-link" href="/gallery/">Gallery</a>
+                    </li>
+                    {% url 'aboutus' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}"><a class="rd-nav-link" href="{% url 'aboutus' %}">About</a>
+                      <!-- RD Navbar Dropdown-->
+                      <!-- <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="about-us.html">About Us</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="404-page.html">404 page</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="coming-soon.html">Coming soon</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="counters.html">Counters</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="icon-lists.html">Icon lists</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="search-results.html">Search results</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="privacy-policy.html">Privacy policy</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="contacts.html">Contacts</a></li>
+                      </ul>-->
+                    </li>
+                    {% url 'contactus' as url %}
+                    <li class="rd-nav-item {% if request.path == url %}active{% endif %}"><a class="rd-nav-link" href="#">Get in Touch</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/contactus/">Contact Us</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/carrer/">Career</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/expertteam/">Expert Team</a></li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{% url 'notice' %}">Notice</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<style>
+    .n-title{
+      font-size: 18px;
+      color: black;
+      font-weight: 500;
+  }
+  .n-link{
+    font-weight: 100;
+  }
+  .notice-banner{
+    background: #FFF3CD;
+    color: black;
+  }
+  </style>
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Notice</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-thin fa-arrow-right"></i></li>
+            <li class="">Notice</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="container-fluid">
+        <div class="py-3"></div>
+        {% for i in all_notice %}
+        <div class="alert alert-light border" role="alert">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <p class="n-title">{{i.title}}</p>
+            </div>
+            <div class="col-12 col-md-4 text-md-center">
+              <span class="n-date">{{i.publish_date}}</span>
+            </div>
+            <div class="col-12 col-md-4 text-md-center">
+              <a href="{{i.file.url}}" class="alert-link n-link btn btn btn-dark text-white">Downlaod</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      
+      <div class="section_height"></div>
+      
+      
+
+
+{% endblock body_block %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+
+<style>
+  .description_board{
+    all: initial;
+  }
+</style>
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Team Member Details</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="index.html">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="#">Team Member</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li class="active">Team Member Details</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-left">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+          <div class="col-md-6">
+            <img src="/media/{{boardofdirectorsdetails.image}}" alt="" style="height:400px;">
+          </div>
+        <div class="col-md-6" style="margin:auto;">
+            <h3 style="margin: auto;">{{boardofdirectorsdetails.name}}</h3>
+            <span class="pt-3">POSITION:{{boardofdirectorsdetails.title}}</span>
+        </div>
+        
+        
+      </div>
+      <div class="row description_board">
+        {{boardofdirectorsdetails.description | safe}}
+      </div>
+    </div>
+  </section>
+
+
+{% endblock body_block %}

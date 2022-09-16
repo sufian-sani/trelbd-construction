@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">About US</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="/">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">About US</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- about us -->
+
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="tabs-custom row row-50 justify-content-center flex-lg-row-reverse text-center text-md-left" id="tabs-4">
+            <div class="col-lg-4 col-xl-3">
+              <h5 class="text-spacing-200">12+ years of experience</h5>
+              <ul class="nav list-category list-category-down-md-inline-block">
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s"><a class="active" href="#tabs-4-1" data-toggle="tab">About us</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s"><a href="{% url 'ourmission' %}" data-toggle="tab">Our Mission</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s"><a href="{% url 'ourvision' %}" data-toggle="tab">Our Vision</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s"><a href="{% url 'companyvalue' %}" data-toggle="tab">Company values</a></li>
+              </ul><a class="button button-lg button-secondary button-winona" href="{% url 'contactus' %}">Contact us</a>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <!-- Tab panes-->
+              <div class="tab-content tab-content-1">
+                
+                
+                {{aboutus.description|safe}}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+       
+
+
+{% endblock body_block %}

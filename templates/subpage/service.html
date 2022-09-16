@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %} 
+      
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Services</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Services</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Services 2-->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-40 row-xl-60 justify-content-center box-ordered">
+            {% for service in services %}
+            <a href="{% url 'service-details' id=service.id %}">
+              <div class="col-sm-6 col-lg-4">
+                <!-- Services Creative-->
+                
+                <article class="services-creative"><a class="services-creative-figure" href="{% url 'service-details' id=service.id %}"><img src="/media/{{service.image}}" alt="" width="370" height="230" style="height:250px;"/></a>
+                  <div class="services-creative-caption">
+                    <h5 class="services-creative-title"><a href="{% url 'service-details' id=service.id %}">{{service.heading}}</a></h5>
+                    <p class="services-creative-text">{{service.sub_title}}</p>
+                  </div>
+                </article>
+              
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- Subscribe to Our Newsletter-->
+      <section class="section parallax-container" data-parallax-img="images/bg-forms-1.jpg">
+        <div class="parallax-content section-md context-dark text-md-left">
+          <div class="container">
+            <div class="row row-30 justify-content-center align-items-center">
+              <div class="col-lg-4 col-xl-3">
+                <h5 class="oh-desktop"><span class="d-inline-block wow slideInUp">Newsletter</span></h5>
+                <p class="text-white-05 oh-desktop"><span class="d-inline-block wow slideInDown">Sign up to our newsletter and follow us on social media</span></p>
+              </div>
+              <div class="col-lg-8 col-xl-9">
+                <!-- RD Mailform-->
+                <form class="rd-form rd-mailform rd-form-inline oh-desktop rd-form-inline-lg" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                  <div class="form-wrap wow slideInUp">
+                    <input class="form-input" id="subscribe-form-0-email" type="email" name="email" data-constraints="@Email @Required"/>
+                    <label class="form-label" for="subscribe-form-0-email">Your E-mail*</label>
+                  </div>
+                  <div class="form-button wow slideInRight">
+                    <button class="button button-winona button-lg button-secondary" type="submit">Subscribe</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock body_block %}

@@ -1,0 +1,83 @@
+{% load static %}
+{% load custom_filters %}
+<footer class="section footer-classic context-dark">
+    <div class="footer-classic-content">
+      <div class="container">
+        <div class="row row-50 row-lg-0 no-gutters">
+          <div class="col-sm-6 col-lg-5 wow fadeInRight" data-wow-delay="0s">
+            <div class="footer-classic-header">
+              <h6 class="footer-classic-title">about Our Agency</h6>
+            </div>
+            <div class="footer-classic-body">
+              <ul class="footer-classic-list d-inline-block d-sm-block">
+                <li><a href="{% if request|companyprofile %} {{companyprofile.file_url}} {% else %}#{% endif %}">Company Profile</a></li>
+                <li><a href="/boardofdirectors/">Board Of Director</a></li>
+                <li><a href="/historymilestones/">History And Milestones</a></li>
+                <li><a href="/message-from-md/">Message From MD & Chairman</a></li>
+                <li><a href="/boardmeetingsagm/">Board Meetings And AGM</a></li>
+                <li><a href="/news/">News</a></li>
+                <li><a href="/corporategovernance/">Corporate Governance</a></li>
+                <li><a href="/carrer/">Carear</a></li>
+                <li><a href="/reportstatements/">Reports And Statements</a></li>
+                <li><a href="/event/">Events</a></li>
+                <li><a href="/ourprojects/">Project Details</a></li>
+                <li><a href="{% url 'corporatesocialresponsibility' %}">Corporate Social Responsibility</a></li>
+                <li><a href="{% url 'advertisements' %}">Advertisements</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="footer-classic-header">
+              <div class="box-width-230">
+                <h6 class="footer-classic-title">Get in touch</h6>
+              </div>
+            </div>
+            <div class="footer-classic-body">
+              <div class="box-width-230" style="text-align: center;">
+                <div class="footer-classic-contacts">
+                  <div class="footer-classic-contacts-item">
+                    <div class="unit unit-spacing-sm align-items-center">
+                      <div class="unit-left"><span class="icon icon-24 mdi fa-thin fa-phone"></span></div>
+                      <div class="unit-body"><a class="phone" href="tel:#">+8801791406426</a></div>
+                    </div>
+                  </div>
+                  <div class="footer-classic-contacts-item">
+                    <div class="unit unit-spacing-sm align-items-center">
+                      <div class="unit-left"><span class="icon mdi fa-thin fa-envelope"></span></div>
+                      <div class="unit-body"><a class="mail" href="mailto:#">trenggltd@gmail.com</a></div>
+                    </div>
+                  </div>
+                </div><a class="button button-sm button-secondary button-winona" href="contacts.html">get a quote</a>
+              </div>
+              <div class="footer-classic-body" style="text-align: center;">
+                <ul class="list-inline footer-social-list">
+                  <li><a class="icon mdi fa-brands fa-facebook-f" href="#"></a></li>
+                  <li><a class="icon mdi fa-brands fa-twitter" href="#"></a></li>
+                  <li><a class="icon mdi fa-brands fa-linkedin" href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 position-static">
+            <div class="footer-classic-gmap">
+              <!--Please, add the data attribute data-key="YOUR_API_KEY" in order to insert your own API key for the Google map.-->
+              <!--Please note that YOUR_API_KEY should replaced with your key.-->
+              <!--Example: <div class="google-map-container" data-key="YOUR_API_KEY">-->
+              <div class="google-map-container rd-google-map" data-center="15, New Baily Road. Building #2, Level 4, Dhaka-121" data-zoom="5" data-icon="images/gmap_marker.png" data-icon-active="images/gmap_marker_active.png" data-styles="[{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#e9e9e9&quot;},{&quot;lightness&quot;:17}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f5f5f5&quot;},{&quot;lightness&quot;:20}]},{&quot;featureType&quot;:&quot;road.local&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:40},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;administrative.province&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;lightness&quot;:30}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ef8c25&quot;},{&quot;lightness&quot;:40}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.stroke&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.park&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b6c54c&quot;},{&quot;lightness&quot;:40},{&quot;saturation&quot;:-40}]},{}]">
+                <div class="google-map"></div>
+                <ul class="google-map-markers">
+                  <li data-location="15, New Baily Road. Building #2, Level 4, Dhaka-121" data-description="9870 St Vincent Place, Glasgow"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-classic-panel">
+      <div class="container">
+        <!-- Rights-->
+        <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Flex</span><span>.&nbsp;</span><a href="privacy-policy.html">Privacy policy</a></p>
+      </div>
+    </div>
+  </footer>

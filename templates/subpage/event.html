@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body_block %} 
+
+<style>
+    .card:hover {
+      box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    }
+    .bottom-border{
+      width:150px;
+      height:5px;
+      background:#FDBE33;
+      display:block;
+      margin: auto;
+    }
+    .notice-banner{
+      color:#FFF;
+      font-size: 18px;
+    }
+    .custom-alert-color{
+      background:#F5E8C3;
+    }
+    .row-style{
+      padding: 2px 10px;
+    }
+    .title_style{}
+    .alert-warning{
+        background: #FC9321;
+    }
+  </style>
+
+  <div class="alert alert-light" role="alert">
+    <p class="text-center fs-2 notice-banner alert alert-warning">News and Events</p>
+  </div>
+
+  <span class="bottom-border my-3"></span>
+
+<div class="container my-3">
+  <div class="row">
+    {% for i in events %}
+      <div class="col-12 col-md-6 my-3">
+        <div class="card border-0 row-style">
+          <div class="row">
+            <div class="col-12 col-md-6 my-2">
+              <img src="{{i.image.url}}" class='img-fluid' alt="">
+          </div>
+          <div class="col-12 col-md-6 my-1" style="text-align: left;">
+              <h5 class="title_style"><a href="{% url 'eventdetails' slug=i.slug %}" class="text-decoration-underline h5">{{i.title}}</a></h5>
+              <span>{{i.publish_date}}</span><hr>
+              <p>{{i.description|range_filter|safe}}</p>
+          </div>
+        </div>
+        </div>
+    </div>
+  {% endfor %}
+
+</div>
+</div>
+
+{% endblock body_block %}

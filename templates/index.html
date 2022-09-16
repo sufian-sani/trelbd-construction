@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% load service %}
+
+{% block body_block %}
+  <!-- Swiper--slider -->
+  {% include 'includes/slider.html' %}
+  <!-- About Company-->
+
+  {% include 'includes/about.html' %}
+  <!-- What we offer-->
+
+  {% include 'includes/services.html' %}
+
+  <!-- Section CTA-->
+  {% include 'includes/cta.html' %}
+
+
+  <!-- Mining machinery-->
+
+  {% include 'includes/gallery.html' %}
+
+  <!-- Latest Project-->
+
+  {% include 'includes/project.html' %}
+
+  <!-- Section-->
+  {% comment %} {% include 'includes/section1.html' %} {% endcomment %}
+
+
+  {% include 'includes/section2.html' %}
+
+
+  <!-- Section-->
+  {% include 'includes/section3.html' %}
+
+
+
+  <!-- Subscribe to Our Newsletter-->
+  {% include 'includes/newsletter.html' %}
+
+  <!-- Latest news-->
+  {% include 'includes/latestnews.html' %}
+
+
+  <!-- Page Footer-->
+
+<!-- Panel Thumbnail-->
+<!-- Global Mailform Output-->
+
+{% endblock %}

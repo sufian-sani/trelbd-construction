@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% load static %} {% block body_block %}
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+  <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <div class="container">
+      <h3 class="breadcrumbs-custom-title">News</h3>
+      <div class="breadcrumbs-custom-decor"></div>
+    </div>
+    <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="index.html">Home</a></li>
+      <li><i class="fa-solid fa-arrow-right-long"></i></li>
+      <li class="active">News</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Grid Blog-->
+<section class="section section-lg bg-default">
+  <div class="container">
+    <div class="row row-40 row-lg-60 justify-content-center">
+      {% for contact in page_obj %}
+      <div class="col-sm-6 col-lg-4 order-lg-1">
+        <!-- Post Classic-->
+        <article class="post post-classic">
+          <div class="post-classic-figure">
+            <a href="{% url 'newspage_details' slug=contact.slug %}">
+            <img
+              src="/media/{{contact.image}}"
+              alt=""
+              style="height: 233px; width: 350px;"
+            />
+          </a>
+          </div>
+          <div class="post-classic-content">
+            <p class="post-classic-title">
+              <a href="{% url 'newspage_details' slug=contact.slug %}">{{contact.title}}</a>
+            </p>
+          </div>
+          <time class="post-classic-time" datetime="2019-04-30"
+            >{{contact.publish_date}}</time
+          >
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="pb-5">
+    <span>
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-info">Previous</a>
+      {% endif %}
+      <span>
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-info">Next</a>
+      {% endif %}
+    </span>
+  </div>
+
+{% comment %} <section>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section> {% endcomment %}
+{% endblock body_block %}

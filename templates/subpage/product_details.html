@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+
+<style>
+    #content_pd {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      padding: 0 0;
+      text-align: left;
+    }
+    .container__pd {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 1170px;
+    }
+    .page-content_pd {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+    }
+    .ftco-section {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      display: block;
+    }
+    .ftco-section .container__pd {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 1170px;
+    }
+    .product-details_pd {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+      float: left;
+      width: 50%;
+    }
+    .rating {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      display: flex !important;
+    }
+    .quotation {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #666;
+      box-sizing: border-box;
+      -webkit-box-pack: center !important;
+      justify-content: center !important;
+      display: flex !important;
+    }
+    .modal-title {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      color: #444;
+      margin: 0;
+      margin-bottom: 0;
+      display: block;
+      overflow: hidden;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .page-content_pd p {
+      margin-bottom: 0;
+    }
+    .product-details_pd button {
+      height: 40px !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      color: #fff;
+      padding: 10px 20px;
+      background: #FDBE33 !important;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
+      font-size: 14px;
+    }
+
+  </style>
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Product Details</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li><a href="#">Products</a></li>
+        <li><i class="fa-thin fa-arrow-right"></i></li>
+        <li class="active">Product Details</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+
+  <div id="content_pd" class="py-5">
+    <div class="container__pd">
+      <div class="page-content_pd">
+        <section class="ftco-section">
+          <div class="container__pd">
+            <div class="row">
+              <div
+                class="col-lg-6 mb-5 d-flex product_img"
+                style="text-align: center"
+              >
+                <a href="" class="image-popup"
+                  ><img
+                    src="{{product_details.image.url}}"
+                    class="img-fluid"
+                    alt=""
+                    style="max-width: 80%"
+                /></a>
+              </div>
+  
+              <div class="col-lg-6 product-details_pd pl-md-5">
+                <h3>{{product_details.name}}</h3>
+                <p>{{product_details.subtitle}}</p>
+                <div class="rating d-flex">
+                  <p class="text-left mr-4">
+                    <br />
+                    <a class="mr-2">Brand: {{product_details.brand}}</a>
+                  </p>
+                </div>
+  
+                <div class="quotation d-flex justify-content-center">
+                  {% comment %} <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Get Price Quotation
+                  </button> {% endcomment %}
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Send Quotation Inquiry
+                  </button>
+                </div>
+                <div class="text-center">
+                  <span><strong>OR</strong></span>
+                </div>
+                <div class="quotation d-flex justify-content-center">
+                  <h5 class="modal-title">
+                    Call: <a href="tel://01711 429689">(+880)1711 429689</a>
+                  </h5>
+                </div>
+              </div>
+              <p>{{product_details.description|safe}}</p>
+  
+  
+                {% comment %} <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Send Quotation Inquiry</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="POST">
+                                    {{form|crispy}}
+                                    {% csrf_token %}
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <input type="submit" data-form-url="" id="save-form" class="btn btn-outline-warning" value="Send Inquiry">
+                                    </div>
+                                </form>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+
+                <!-- Button trigger modal -->
+                {% comment %} <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Send Quotation Inquiry
+                </button> {% endcomment %}
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content" style="margin-top:15%;">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST">
+                                {{form|crispy}}
+                                {% csrf_token %}
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" data-form-url="" id="save-form" class="btn btn-outline-warning" value="Send Inquiry">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+  
+              
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock body_block %}

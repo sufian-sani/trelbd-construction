@@ -1,0 +1,36 @@
+{% load static %}
+<section class="section parallax-container" data-parallax-img="{% static 'image/background/bg-forms-1.jpg' %}">
+    <div class="parallax-content section-md context-dark text-md-left">
+      <div class="container">
+        <div class="row row-30 justify-content-center align-items-center">
+          <div class="col-lg-4 col-xl-3">
+            <h5 class="oh-desktop"><span class="d-inline-block wow slideInUp">Newsletter</span></h5>
+            <p class="text-white-05 oh-desktop"><span class="d-inline-block wow slideInDown">Sign up to our newsletter and follow us on social media</span></p>
+          </div>
+          <div class="col-lg-8 col-xl-9">
+            <!-- RD Mailform-->
+            <form onsubmit="alertFunction()" class="rd-form rd-mailform rd-form-inline oh-desktop rd-form-inline-lg" data-form-output="" data-form-type="" method="POST" action="{% url 'index' %}">
+              {% csrf_token %}
+              <div class="form-wrap wow slideInUp">
+                <input class="form-input" id="subscribe-form-0-email" type="email" name="email" data-constraints="@Email @Required" required/>
+                <label class="form-label" for="subscribe-form-0-email">Your E-mail*</label>
+              </div>
+              <div class="form-button wow slideInRight">
+                <input type="submit" class="button button-winona button-lg button-secondary" value="Subscribe"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function alertFunction(){
+      let email = document.getElementById('subscribe-form-0-email').value
+      if (email == null || email == ""){
+        alert("Email Field is Empty");
+      }else{
+        alert("Your Suscribtion has been successfully Completed");
+      }
+    }
+    </script>

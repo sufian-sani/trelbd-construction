@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% load static %} {% block body_block %}
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+  <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <div class="container">
+      <h3 class="breadcrumbs-custom-title">News Details</h3>
+      <div class="breadcrumbs-custom-decor"></div>
+    </div>
+    <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="/">Home</a></li>
+      <li><i class="fa-thin fa-arrow-right"></i></li>
+      <li><a href="/news/">News</a></li>
+      <li><i class="fa-thin fa-arrow-right"></i></li>
+      <li class="active">News Details</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-lg bg-default">
+  <div class="container">
+    <div class="row row-90 row-xl-90">
+      <div class="col-lg-12">
+        <div class="single-post section-style-2">
+          <div class="row">
+            <div class="col col-6">
+              <h5
+                class="text-spacing-50 font-weight-normal text-transform-none"
+              >
+                5 Tips to Make a Smooth Transition to Coworking
+              </h5>
+              <div class="group-md group-middle">
+                <time class="post-classic-time" datetime=""
+                  >{{news_details.publish_date}}</time
+                >
+              </div>
+            </div>
+            <div class="col col-6">
+              <div class="unit-left">
+                <img
+                  src="/media/{{news_details.image}}"
+                  alt=""
+                  width="333"
+                  height="243"
+                />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="pt-5">
+            {{news_details.description|safe}}
+          </div>
+          
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock body_block %}

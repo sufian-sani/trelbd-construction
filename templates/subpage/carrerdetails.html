@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">Carrer Details</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url({% static 'image/background/bg-typography.jpg' %});"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><i class="fa-solid fa-arrow-right-long"></i></li>
+            <li class="active">Carrer Details</li>
+          </ul>
+        </div>
+      </section>
+     
+    <div class="container">
+        <div class="row py-1 text-left">
+                <div class="card mb-1" style="width: 100%;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{carrer.title}}</h5>
+                      <p class="card-subtitle mb-2 text-muted">Published Date: {{carrer.post_date}}</p>
+                      <p class="card-text pb-4">salary: {{carrer.salary}}</p>
+                      <p class="card-text">Description:</p>
+                      <p class="">{{carrer.description|safe}}</p>
+                    </div>
+                    
+                  </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-lg-7 text-left">
+            <h5>Apply For:</h5>
+                
+
+                <form action="{% url 'carrerdetails' slug=carrer.slug %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="job_id" value="{{carrer.id}}">
+                    <input type="hidden" name="job_title" value="{{carrer.title}}">
+                    
+                    <div class="form-group">
+                        <label for="nameid">Full Name</label>
+                        <input type="name" name="name" class="form-control" id="nameid" aria-describedby="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampid">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampid" aria-describedby="">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="numberid">Phone Number</label>
+                        <input type="text" name="phone" class="form-control" id="numberid" aria-describedby="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salaryid">Expected Salary</label>
+                        <input type="text" name="expected_salary" class="form-control" id="salaryid" aria-describedby="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Attach your CV including your picture</label>
+                        <input type="file" name="resume" class="form-control" aria-describedby="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Short Message (Optional)</label>
+                        <input type="text" name="massage" class="" placeholder="Write a short massage" rows="5" aria-describedby="">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock body_block %}
